@@ -6,10 +6,22 @@
 
 using color = vec3;
 
+inline double gamma_correct(double x) {
+    if (x > 0) {
+        return sqrt(x);
+    }
+
+    return 0;
+}
+
 void write_color(std::ostream &out, const color& pixel_color) {
     auto r = pixel_color.x();
     auto g = pixel_color.y();
     auto b = pixel_color.z();
+
+    r = gamma_correct(r);
+    g = gamma_correct(g);
+    b = gamma_correct(b);
 
     static const interval intensity(0.000, 0.999);
     int rbyte = int(256 * intensity.clamp(r));
