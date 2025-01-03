@@ -1,1 +1,1 @@
-learning Ray Tracers from https://raytracing.github.io
+learning Ray Tracing from https://raytracing.github.io
